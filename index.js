@@ -18,5 +18,7 @@ class ActionButtonJsonToCSV {
   async destroy(props) { }
 }
 
+console.log('%c The altair-graphql-plugin-json-to-csv package was loaded.', 'background: #aed; color: #ffffff; display: block; padding: 7px 3px; font-weight: bold; border-left: 10px solid #1d1c1a');
+
 // Add the class to the Altair plugins object
 window.AltairGraphQL.plugins.ActionButtonJsonToCSV = ActionButtonJsonToCSV;
