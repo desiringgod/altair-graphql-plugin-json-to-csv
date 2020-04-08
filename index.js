@@ -1,5 +1,9 @@
 class ActionButtonJsonToCSV {
-  constructor(props) { }
+  constructor(props) {
+    console.log('-----------');
+    console.log(props);
+    console.log('-----------');
+  }
 
   // Called to retrieve the render information for the button.
   // Currently only the text of the button is required.
@@ -11,14 +15,18 @@ class ActionButtonJsonToCSV {
 
   // Called when the action button is clicked
   async execute(props) {
-    alert('This is the action executed when the button clicked');
+    console.log('===========');
+    console.log(props);
+    console.log('===========');
   }
 
   // Perform cleanups in this function
-  async destroy(props) { }
+  async destroy(props) {
+    console.log('+++++++++++++++++');
+    console.log(props);
+    console.log('+++++++++++++++++');
+  }
 }
-
-console.log('%c The altair-graphql-plugin-json-to-csv package was loaded.', 'background: #aed; color: #ffffff; display: block; padding: 7px 3px; font-weight: bold; border-left: 10px solid #1d1c1a');
 
 // Add the class to the Altair plugins object
 window.AltairGraphQL.plugins.ActionButtonJsonToCSV = ActionButtonJsonToCSV;
