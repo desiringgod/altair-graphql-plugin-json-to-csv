@@ -8,7 +8,7 @@
   "author" : "Altair GraphQL Client",
   "type": "action_button",
   "action_button_opts": {
-    "class_name": ".json2csv",
+    "class_name": "ActionButtonJsonToCSV",
     "location": "result_pane"
   }
 }
