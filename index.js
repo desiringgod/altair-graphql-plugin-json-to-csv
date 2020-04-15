@@ -1,4 +1,4 @@
-import FileSaver from 'file-saver';
+// import FileSaver from 'file-saver';
 
 class ActionButtonJsonToCSV {
   constructor(props) {
@@ -33,10 +33,10 @@ class ActionButtonJsonToCSV {
       method: 'POST',
     })
     .then(async response => {
-      const r = await response.text();
-      console.log(r);
-      var blob = new Blob([r], { type: "text/json;charset=utf-8" });
-      FileSaver.saveAs(blob, "download.csv");
+      const csvOutput = await response.text();
+      console.log({csvOutput});
+      // var blob = new Blob([csvOutput], { type: "text/json;charset=utf-8" });
+      // FileSaver.saveAs(blob, "download.csv");
     });
   }
 
