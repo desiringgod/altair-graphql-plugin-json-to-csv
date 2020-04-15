@@ -1,4 +1,4 @@
-var FileSaver = require('file-saver');
+import FileSaver from 'file-saver';
 
 class ActionButtonJsonToCSV {
   constructor(props) {
