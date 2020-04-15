@@ -5,5 +5,9 @@
   "main": "index.js",
   "dependencies": {
     "file-saver": "^2.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/isaachvazquez/altair-graphql-plugin-json-to-csv.git"
   }
 }
