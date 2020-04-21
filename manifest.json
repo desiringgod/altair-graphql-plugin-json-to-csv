@@ -1,11 +1,11 @@
 {
   "manifest_version": 1,
-  "name" : "altair-graphql-plugin-json-to-csv",
-  "version" : "0.2.4",
+  "name": "altair-graphql-plugin-json-to-csv",
+  "version": "0.2.5",
   "display_name": "Altair JSON-to-CSV",
-  "description" : "Button to convert json to csv in Altair",
-  "author_email" : "isaachvazquez@gmail.com",
-  "author" : "Altair GraphQL Client",
+  "description": "Button to convert json to csv in Altair",
+  "author_email": "isaachvazquez@gmail.com",
+  "author": "Altair GraphQL Client",
   "type": "action_button",
   "action_button_opts": {
     "class_name": "ActionButtonJsonToCSV",
