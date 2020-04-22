@@ -1,3 +1,6 @@
+// Uncomment to Test
+// const fetch = require('node-fetch');
+
 class ActionButtonJsonToCSV {
   constructor(props) {}
 
@@ -16,20 +19,43 @@ class ActionButtonJsonToCSV {
     console.log('===========');
 
     const email = 'test@example.com';
+
     const json = {
-      "test": true,
-      "test2": false
+      "data": {
+        "teachers": {
+          "nodes": [{
+              "id": "t1",
+              "name": "Smith",
+              "school": "Woodbury",
+              "dept": "PE"
+            },
+            {
+              "id": "t2",
+              "name": "Brown",
+              "school": "Woodbury",
+              "dept": "English",
+              "awards": "Best Teacher Ever Award"
+            },
+            {
+              "id": "t3",
+              "name": "Johnson",
+              "school": "Franklin",
+              "dept": "FACS"
+            }
+          ]
+        }
+      }
     };
     const jsonString = JSON.stringify(json);
-    const url = `https://json-csv.com/api/getcsv?email=${email}&json=${jsonString}`;
+    const url = `https://json-csv.com/api/getcsv?email=${email}&json=${jsonString}&nestedDataType=3`;
 
     fetch(url, {
         method: 'POST',
       })
       .then(async response => {
         const csvOutput = await response.text();
-        const blob = new Blob([csvOutput], { type: "text/csv;charset=utf-8" });
         console.log({ csvOutput });
+        const blob = new Blob([csvOutput], { type: "text/csv;charset=utf-8" });
         console.log({ FileSaver });
         FileSaver.saveAs(blob, 'download.csv');
       });
@@ -41,3 +67,8 @@ class ActionButtonJsonToCSV {
 
 // Add the class to the Altair plugins object
 window.AltairGraphQL.plugins.ActionButtonJsonToCSV = ActionButtonJsonToCSV;
+
+
+// Uncomment to Test
+// const test = new ActionButtonJsonToCSV();
+// test.execute();
