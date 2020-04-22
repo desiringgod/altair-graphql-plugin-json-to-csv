@@ -12,6 +12,6 @@
     "location": "result_pane"
   },
   "scripts": [
-    "index.js"
+    "altair-build.js"
   ]
 }
