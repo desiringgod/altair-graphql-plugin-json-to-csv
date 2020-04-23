@@ -56,10 +56,8 @@ class ActionButtonJsonToCSV {
       })
       .then(async response => {
         const csvOutput = await response.text();
-        console.log({ csvOutput });
         const blob = new Blob([csvOutput], { type: "text/csv;charset=utf-8" });
-        console.log({ FileSaver });
-        FileSaver.saveAs(blob, 'download.csv');
+        saveAs(blob, 'download.csv');
       });
   }
 
