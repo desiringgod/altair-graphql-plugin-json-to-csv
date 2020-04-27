@@ -21,7 +21,7 @@ class ActionButtonJsonToCSV {
     console.log('===========');
 
     const email = 'test@example.com';
-
+    // const json = props.queryResponse;
     const json = {
       "data": {
         "teachers": {
@@ -50,6 +50,10 @@ class ActionButtonJsonToCSV {
     };
     const jsonString = JSON.stringify(json);
     const url = `https://json-csv.com/api/getcsv?email=${email}&json=${jsonString}&nestedDataType=3`;
+
+    const testCsvOutput = '"a", "b", "c"';
+    const testBlob = new Blob([testCsvOutput], { type: "text/csv;charset=utf-8" });
+    saveAs(testCsvOutput, 'download.csv');
 
     fetch(url, {
         method: 'POST',

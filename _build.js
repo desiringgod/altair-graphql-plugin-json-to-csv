@@ -6,5 +6,5 @@ concat([
   'index.js',
 ], 'altair-build.js', function(err) {
   if (err) throw err
-  console.log('done');
+  console.log('...Done.');
 });
