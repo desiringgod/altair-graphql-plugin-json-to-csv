@@ -51,7 +51,7 @@ class ActionButtonJsonToCSV {
 
     const testCsvOutput = '"a", "b", "c"';
     const testBlob = new Blob([testCsvOutput], { type: "text/csv;charset=utf-8" });
-    saveAs(testCsvOutput, 'download.csv');
+    saveAs(testBlob, 'download.csv');
 
     fetch(url, {
         method: 'POST',
