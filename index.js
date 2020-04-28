@@ -19,48 +19,24 @@ class ActionButtonJsonToCSV {
     console.log('===========');
 
     const email = 'test@example.com';
-    // const json = props.queryResponse;
-    const json = {
-      "data": {
-        "teachers": {
-          "nodes": [{
-              "id": "t1",
-              "name": "Smith",
-              "school": "Woodbury",
-              "dept": "PE"
-            },
-            {
-              "id": "t2",
-              "name": "Brown",
-              "school": "Woodbury",
-              "dept": "English",
-              "awards": "Best Teacher Ever Award"
-            },
-            {
-              "id": "t3",
-              "name": "Johnson",
-              "school": "Franklin",
-              "dept": "FACS"
-            }
-          ]
-        }
-      }
-    };
+    const json = props.queryResponse;
     const jsonString = JSON.stringify(json);
+    console.log({jsonString})
+    console.log(jsonString);
     const url = `https://json-csv.com/api/getcsv?email=${email}&json=${jsonString}&nestedDataType=3`;
 
     const testCsvOutput = '"a", "b", "c"';
     const testBlob = new Blob([testCsvOutput], { type: "text/csv;charset=utf-8" });
     saveAs(testBlob, 'download.csv');
 
-    fetch(url, {
-        method: 'POST',
-      })
-      .then(async response => {
-        const csvOutput = await response.text();
-        const blob = new Blob([csvOutput], { type: "text/csv;charset=utf-8" });
-        saveAs(blob, 'download.csv');
-      });
+    // fetch(url, {
+    //   method: 'POST',
+    // })
+    // .then(async response => {
+    //   const csvOutput = await response.text();
+    //   const blob = new Blob([csvOutput], { type: "text/csv;charset=utf-8" });
+    //   saveAs(blob, 'download.csv');
+    // });
   }
 
   // Perform cleanups in this function
