@@ -7,7 +7,7 @@ class ActionButtonJsonToCSV {
   // Currently only the text of the button is required.
   async render(props) {
     return {
-      text: 'Download/Export as CSV'
+      text: 'Download CSV'
     };
   }
 
