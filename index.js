@@ -17,12 +17,16 @@ class ActionButtonJsonToCSV {
     console.log(props);
     console.log('===========');
 
-    if (props.variables == "" || props.variables["json-csv-email"] != undefined) {
+    const variables = JSON.parse(props.variables);
+    console.log({variables});
+
+    if (props.variables == "" || variables["json-csv-email"] != undefined) {
       alert('Please set the api email address in variables. \n Like this: {"json-csv-email": "test@example.com"}');
       return;
     }
 
-    const email = JSON.parse(props.variables["json-csv-email"]);
+    const email = variables["json-csv-email"];
+    console.log({ email });
     const json = props.queryResponse;
     const jsonString = JSON.stringify(json);
     const url = `https://json-csv.com/api/getcsv?email=${email}&json=${jsonString}&nestedDataType=3`;
