@@ -20,7 +20,7 @@ class ActionButtonJsonToCSV {
     const variables = JSON.parse(props.variables);
     console.log({variables});
 
-    if (props.variables == "" || variables["json-csv-email"] != undefined) {
+    if (props.variables == "" || variables["json-csv-email"] == undefined) {
       alert('Please set the api email address in variables. \n Like this: {"json-csv-email": "test@example.com"}');
       return;
     }
