@@ -28,7 +28,7 @@ class ActionButtonJsonToCSV {
     const email = variables["json-csv-email"];
     console.log({ email });
     const json = props.queryResponse;
-    const jsonString = JSON.stringify(json);
+    const jsonString = encodeURIComponent(JSON.stringify(json));
     const url = `https://json-csv.com/api/getcsv?email=${email}&json=${jsonString}&nestedDataType=3`;
 
     fetch(url, {
