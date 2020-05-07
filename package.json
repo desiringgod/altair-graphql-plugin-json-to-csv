@@ -1,6 +1,6 @@
 {
   "name": "altair-graphql-plugin-json-to-csv",
-  "version": "0.4.6",
+  "version": "0.5.0",
   "description": "Button to convert json to csv in Altair",
   "scripts": {
     "build": "node _build.js"
