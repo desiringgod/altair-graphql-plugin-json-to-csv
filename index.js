@@ -18,24 +18,24 @@ class ActionButtonJsonToCSV {
     console.log('===========');
 
     const variables = JSON.parse(props.variables);
-
-    if (props.variables == "" || variables["json-csv-email"] == undefined) {
-      alert('Please set the api email address in variables. \n Like this: {"json-csv-email": "test@example.com"}');
-      return;
-    }
-
-    const email = variables["json-csv-email"];
+    const emailVariableExists = props.variables == "" || variables["json-csv-email"] == undefined;
+    const email = emailVariableExists ? variables["json-csv-email"] : '';
     const json = props.queryResponse;
     const jsonString = encodeURIComponent(JSON.stringify(json));
-    const url = `https://json-csv.com/api/getcsv?email=${email}&json=${jsonString}&nestedDataType=3`;
+    const url = `https://json-csv.com/api/getcsv`;
+    const params = {email, json: jsonString, nestedDataType: 3};
 
     fetch(url, {
       method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `email=${email}&json=${jsonString}&nestedDataType=3`
     })
     .then(async response => {
       const csvOutput = await response.text();
       const blob = new Blob([csvOutput], { type: "text/csv;charset=utf-8" });
       saveAs(blob, 'download.csv');
+    }).catch(err => {
+      console.log({ err });
     });
   }
 
