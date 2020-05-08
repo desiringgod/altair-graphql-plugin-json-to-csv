@@ -27,8 +27,8 @@ class ActionButtonJsonToCSV {
 
     console.log(variables);
 
-    const emailVariableExists = variables == undefined || variables["json-csv-email"] == undefined;
-    const email = emailVariableExists ? variables["json-csv-email"] : '';
+    const emailVariableMissing = variables == undefined || variables["json-csv-email"] == undefined;
+    const email = emailVariableMissing ? '' : variables["json-csv-email"];
     console.log({email});
     const json = props.queryResponse;
     const jsonString = encodeURIComponent(JSON.stringify(json));
