@@ -17,9 +17,19 @@ class ActionButtonJsonToCSV {
     console.log(props);
     console.log('===========');
 
-    const variables = JSON.parse(props.variables);
-    const emailVariableExists = props.variables == "" || variables["json-csv-email"] == undefined;
+    let variables;
+
+    try {
+      variables = JSON.parse(props.variables)
+    } catch (e) {
+      // is not a valid JSON string
+    }
+
+    console.log(variables);
+
+    const emailVariableExists = variables == undefined || variables["json-csv-email"] == undefined;
     const email = emailVariableExists ? variables["json-csv-email"] : '';
+    console.log({email});
     const json = props.queryResponse;
     const jsonString = encodeURIComponent(JSON.stringify(json));
     const url = `https://json-csv.com/api/getcsv`;
