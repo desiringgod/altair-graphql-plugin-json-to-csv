@@ -21,17 +21,11 @@ class ActionButtonJsonToCSV {
 
     let variables;
 
-    try {
-      variables = JSON.parse(props.variables)
-    } catch (e) {
-      // is not a valid JSON string
-    }
+    // Check if variables is a valid JSON string
+    try { variables = JSON.parse(props.variables) } catch (e) {}
 
-    console.log(variables);
-
-    const emailVariableMissing = variables == undefined || variables["json-csv-email"] == undefined;
-    const email = emailVariableMissing ? '' : variables["json-csv-email"];
-    console.log({email});
+    const emailVariableExists = variables != undefined || variables["json-csv-email"] != undefined;
+    const email = emailVariableExists ? variables["json-csv-email"] : '';
     const json = props.queryResponse;
     const jsonString = encodeURIComponent(JSON.stringify(json));
     const url = `https://json-csv.com/api/getcsv`;
