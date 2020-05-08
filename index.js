@@ -22,6 +22,8 @@ class ActionButtonJsonToCSV {
     // Check if variables is a valid JSON string
     try { variables = JSON.parse(props.variables) } catch (e) {}
 
+    console.log({variables});
+
     const emailVariableExists = variables != undefined || variables["json-csv-email"] != undefined;
     const email = emailVariableExists ? variables["json-csv-email"] : '';
     const json = props.queryResponse;
