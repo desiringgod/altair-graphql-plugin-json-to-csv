@@ -37,7 +37,8 @@ class ActionButtonJsonToCSV {
       const csvOutput = await response.text();
       console.log({csvOutput});
       const fileTooBigMessage = 'Limit hit.  We only allow 1MB per day to be converted. Contact json-csv.com to upgrade your account and convert larger files.';
-      if(csvOutput.includes(fileTooBigMessage)) {
+      console.log(csvOutput.includes('Limit hit.'));
+      if(csvOutput.includes('Limit hit.')) {
         alert(`${fileTooBigMessage}\n\nOnce you've set up an account, add your email address associated with the json-csv API to the variables like this:\n{json-csv-email: 'email@example.com'}`);
         return;
       }
