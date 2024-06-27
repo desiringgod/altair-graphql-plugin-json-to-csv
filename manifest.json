@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "altair-graphql-plugin-json-to-csv",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "display_name": "Altair JSON-to-CSV",
   "description": "Converts json output to csv in Altair",
   "author_email": "isaacv@hey.com",
