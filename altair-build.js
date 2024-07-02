@@ -23,7 +23,7 @@ class ActionButtonJsonToCSV {
         } else {
           const email = emailVariableExists ? variables["json-csv-email"] : '';
           const json = state.queryResults?.length ? state.queryResults[0] : state.queryResult;
-          const jsonString = encodeURIComponent(JSON.stringify(json));
+          const jsonString = encodeURIComponent(json);
           const url = `https://data.page/api/getcsv`;
   
           fetch(url, {
